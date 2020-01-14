@@ -1,16 +1,18 @@
 %global git_org mikefarah
+%global commit_date %(date +"%Y%m%d")
+%global rel_build %{commit_date}%{?dist}
 
 # https://bugzilla.redhat.com/show_bug.cgi?id=995136#c12
 %global _dwz_low_mem_die_limit 0
 
 Name:           yq
-Version:        3.0.0-beta
-Release:        1%{?dist}
+Version:        3.0.0
+Release:        %{rel_build}
 Summary:        Process YAML documents from the CLI
 
 License:        MIT
 URL:            https://github.com/%{git_org}/%{name}
-Source0:        https://github.com/%{git_org}/%{name}/archive/%{version}.tar.gz
+Source0:        https://github.com/%{git_org}/%{name}/archive/master.tar.gz
 
 BuildRequires:  golang
 BuildRequires:  rsync
